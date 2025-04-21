@@ -7,7 +7,7 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import "./App.css";
 
 // === API FUNCTIONS INLINE ===
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://api-for-todo.onrender.com";
 
 const getTasks = async () => {
   const res = await fetch(`${BASE_URL}/tasks`);
