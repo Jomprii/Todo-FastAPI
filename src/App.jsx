@@ -65,7 +65,11 @@ export default function App() {
     e.preventDefault();
     if (taskText.trim()) {
       if (editId !== null) {
-        const updatedTask = await updateTask(editId, { text: taskText });
+        const existingTask = tasks.find((task) => task.id === editId);
+        const updatedTask = await updateTask(editId, {
+          text: taskText,
+          completed: existingTask.completed, // ✅ preserve completion status
+        });
         setTasks(
           tasks.map((task) =>
             task.id === editId ? { ...task, text: updatedTask.text } : task
